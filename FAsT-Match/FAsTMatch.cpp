@@ -9,8 +9,10 @@
 #include "FAsTMatch.h"
 #include <iomanip>
 #include <random>
+#include <numeric>
 #include <tbb/tbb.h>
 
+#define M_PI 3.14159265358979323846
 
 #define WITHIN( val, top_left, bottom_right ) (\
             val.x > top_left.x && val.y > top_left.y && \
@@ -307,10 +309,10 @@ namespace fast_match {
             Mat affine_corners = (affine * corners).t();
             affine_corners =  affine_corners + transl;
             
-            if( WITHIN( affine_corners.at<Point2f>(0), top_left, bottom_right) &&
-                WITHIN( affine_corners.at<Point2f>(1), top_left, bottom_right) &&
-                WITHIN( affine_corners.at<Point2f>(2), top_left, bottom_right) &&
-                WITHIN( affine_corners.at<Point2f>(3), top_left, bottom_right) ) {
+            if( WITHIN( affine_corners.at<Point2f>(0, 0), top_left, bottom_right) &&
+                WITHIN( affine_corners.at<Point2f>(1, 0), top_left, bottom_right) &&
+                WITHIN( affine_corners.at<Point2f>(2, 0), top_left, bottom_right) &&
+                WITHIN( affine_corners.at<Point2f>(3, 0), top_left, bottom_right) ) {
                 
                 affines[i]  = affine;
                 insiders[i] = true;
@@ -383,8 +385,9 @@ namespace fast_match {
                 for( int j = 0; j < no_of_points; j++ ) {
                     int target_x = int( a11 * xs_ptr_cent[j] + a12 * ys_ptr_cent[j] + tmp_1 ),
                         target_y = int( a21 * xs_ptr_cent[j] + a22 * ys_ptr_cent[j] + tmp_2 );
-                    
-                    score += abs(vals_i1[j] - padded.at<float>(target_y - 1, target_x - 1) );
+
+					if (target_x - 1 >= 0 && target_x - 1 < padded.size().width)
+						score += abs(vals_i1[j] - padded.at<float>(target_y - 1, target_x - 1) );
                 }
             }
             else {
