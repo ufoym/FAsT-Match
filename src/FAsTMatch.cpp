@@ -34,7 +34,7 @@ namespace fast_match {
     /**
      * Apply Fast Template Matching algorithm
      */
-    vector<Point2f> FAsTMatch::apply(Mat& original_image, Mat& original_template ) {
+	vector<Point2f> FAsTMatch::apply(Mat& original_image, Mat& original_template, double &best_distance) {
         /* Preprocess the image and template first */
         image = preprocessImage( original_image );
         templ = preprocessImage( original_template  );
@@ -77,7 +77,6 @@ namespace fast_match {
         MatchConfig best_config;
         Mat best_trans;
         vector<double> best_distances(20, 0.0);
-        double best_distance;
         vector<double> distances;
         vector<bool> insiders;
         

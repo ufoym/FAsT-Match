@@ -26,7 +26,7 @@ namespace fast_match {
         void init( float epsilon = 0.15f, float delta = 0.25f, bool photometric_invariance = false,
                    float min_scale = 0.5f, float max_scale = 2.0f );
         
-        vector<Point2f> apply(Mat& image, Mat& templ);
+		vector<Point2f> apply(Mat& image, Mat& templ, double& best_distance);
         
     protected:
         Mat image, templ;
