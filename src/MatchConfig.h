@@ -12,7 +12,6 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-namespace fast_match {
     /**
      * Config class that describes the parameters used in creating affine transformations
      */
@@ -41,8 +40,6 @@ namespace fast_match {
         
         cv::Mat affine;
     };
-}
-
 
 
 #endif /* defined(__FAsT_Match__MatchConfig__) */

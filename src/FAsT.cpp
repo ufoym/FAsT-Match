@@ -1,7 +1,6 @@
 #include <opencv2/opencv.hpp>
 
 #include "FAsTMatch.h"
-#include "MatchConfig.h"
 
 using namespace std;
 using namespace cv;

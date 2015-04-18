@@ -12,13 +12,15 @@
 #include <numeric>
 #include <tbb/tbb.h>
 
+using namespace std;
+using namespace cv;
+
 #define M_PI 3.14159265358979323846
 
 #define WITHIN( val, top_left, bottom_right ) (\
             val.x > top_left.x && val.y > top_left.y && \
             val.x < bottom_right.x && val.y < bottom_right.y )
 
-namespace fast_match {
     FAsTMatch::FAsTMatch() {
         init();
     }
@@ -556,5 +558,4 @@ namespace fast_match {
             Point2f(c3x, c3y),
             Point2f(c4x, c4y),
         };
-    }
 }

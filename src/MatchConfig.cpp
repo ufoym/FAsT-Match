@@ -13,7 +13,6 @@
 using namespace std;
 using namespace cv;
 
-namespace fast_match {
     /**
      * Default constructor
      */
@@ -101,4 +100,3 @@ namespace fast_match {
                   << config.scaleY      << ", " << config.rotate1    << "]";
         return os;
     }
-}

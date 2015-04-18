@@ -12,7 +12,6 @@
 #include <iostream>
 #include <vector>
 
-namespace fast_match {
     
     /**
      * A representation of the 
@@ -47,5 +46,4 @@ namespace fast_match {
         
         
     };
-}
 #endif /* defined(__FAsT_Match__MatchNet__) */

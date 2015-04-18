@@ -6,3 +6,7 @@
 *.sdf
 *.dll
 *.suo
+*.pyd
+*.pyc
+*.lib
+*.exp

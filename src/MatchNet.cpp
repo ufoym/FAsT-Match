@@ -10,8 +10,7 @@
 #include <cmath>
 using namespace std;
 
-namespace fast_match {
-    
+
     MatchNet::MatchNet( const MatchNet& other ) {
         this->boundsTransX = other.boundsTransX;
         this->boundsTransY = other.boundsTransY;
@@ -105,4 +104,3 @@ namespace fast_match {
         
         return s_steps;
     }
-}
